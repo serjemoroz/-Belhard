@@ -1,0 +1,1199 @@
+{
+	"info": {
+		"_postman_id": "f145b5cf-5c8c-4844-b304-daf49d8ea55f",
+		"name": "Intership Belhard",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26616418"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "auth/register_admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"first_name\": \"Admin\",\r\n  \"last_name\": \"Ivanov\",\r\n  \"email\": \"superkotik777@gmail.com\",\r\n  \"login\": \"loginparol\",\r\n  \"password\": \"parol!login\",\r\n  \"city_id\": 224000,\r\n  \"street\": \"partyzansky\",\r\n  \"house_number\": \"22\",\r\n  \"apartment\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/auth/register",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "auth/login_admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMUg5NjZQQlYyTkY3NTBSQUdZR0RHOE45OSIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxODQ5MDE5NTM5fQ.egPyqc2MGdJP5uIZrlPoBgLJ0werYntt8dSrAGBfzZQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"superkotik777@gmail.com\",\r\n  \"password\": \"pass!login\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/auth/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "auth/login_admin Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMUg5NjZQQlYyTkY3NTBSQUdZR0RHOE45OSIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxODQ5MDE5NTM5fQ.egPyqc2MGdJP5uIZrlPoBgLJ0werYntt8dSrAGBfzZQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"superkotik777@gmail.com\",\r\n  \"password\": \"pass!login\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/auth/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "auth/refresh_admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMUg5NjZQQlYyTkY3NTBSQUdZR0RHOE45OSIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxODQ5MDE5Mzg0fQ.uqENRdX_EKlLmoWq4EFMwtOk_g7_qMMx_IMcWpK9jUM\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/auth/refresh",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "auth/change-password_admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMUg5NjZQQlYyTkY3NTBSQUdZR0RHOE45OSIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxODQ5MDE5NTM5fQ.egPyqc2MGdJP5uIZrlPoBgLJ0werYntt8dSrAGBfzZQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"old_password\": \"parol!login\",\r\n  \"password\": \"pass!login\",\r\n  \"confirm_password\": \"pass!login\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/auth/change-password",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"change-password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "api/v1/add_users_for admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMUg5NjZQQlYyTkY3NTBSQUdZR0RHOE45OSIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxODQ5MDE5NTM5fQ.egPyqc2MGdJP5uIZrlPoBgLJ0werYntt8dSrAGBfzZQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"first_name\": \"Mikhail\",\r\n  \"last_name\": \"Moroz\",\r\n  \"email\": \"sobaka34@gmail.com\",\r\n  \"login\": \"kotovskii\",\r\n  \"password\": \"parol!password\",\r\n  \"city_id\": 224000,\r\n  \"street\": \"altaiskaya\",\r\n  \"house_number\": \"25\",\r\n  \"apartment\": \"19\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "auth/login_user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMUg5NjZQQlYyTkY3NTBSQUdZR0RHOE45OSIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxODQ5MDE5NTM5fQ.egPyqc2MGdJP5uIZrlPoBgLJ0werYntt8dSrAGBfzZQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"sobaka367899@gmail.com\",\r\n  \"password\": \"paroll!passwor\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/auth/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "countries",
+			"item": [
+				{
+					"name": "api/v1/countries_admin",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMUg5NjZQQlYyTkY3NTBSQUdZR0RHOE45OSIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxODQ5MDE5NTM5fQ.egPyqc2MGdJP5uIZrlPoBgLJ0werYntt8dSrAGBfzZQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"first_name\": \"Mikhail\",\r\n  \"last_name\": \"Moroz\",\r\n  \"email\": \"sobaka34@gmail.com\",\r\n  \"login\": \"kotovskii\",\r\n  \"password\": \"parol!password\",\r\n  \"city_id\": 224000,\r\n  \"street\": \"altaiskaya\",\r\n  \"house_number\": \"25\",\r\n  \"apartment\": \"19\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/countries",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"countries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/v1/add_country_admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMUg5NjZQQlYyTkY3NTBSQUdZR0RHOE45OSIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxODQ5MDE5NTM5fQ.egPyqc2MGdJP5uIZrlPoBgLJ0werYntt8dSrAGBfzZQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Люблю_свою_жену\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/countries",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"countries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/v1/country detail_admin",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMUg5NjZQQlYyTkY3NTBSQUdZR0RHOE45OSIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxODQ5MDE5NTM5fQ.egPyqc2MGdJP5uIZrlPoBgLJ0werYntt8dSrAGBfzZQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/countries",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"countries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/v1/edit country_admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMUg5NjZQQlYyTkY3NTBSQUdZR0RHOE45OSIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxODQ5MDE5NTM5fQ.egPyqc2MGdJP5uIZrlPoBgLJ0werYntt8dSrAGBfzZQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"люблю_свою_женщину\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/countries/43",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"countries",
+								"43"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/v1/country_cities_admin Copy",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMUg5NjZQQlYyTkY3NTBSQUdZR0RHOE45OSIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxODQ5MDE5NTM5fQ.egPyqc2MGdJP5uIZrlPoBgLJ0werYntt8dSrAGBfzZQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/countries/45/cities",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"countries",
+								"45",
+								"cities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/v1/add city_admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMUg5NjZQQlYyTkY3NTBSQUdZR0RHOE45OSIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxODQ5MDE5NTM5fQ.egPyqc2MGdJP5uIZrlPoBgLJ0werYntt8dSrAGBfzZQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"45\",\r\n  \"name\": \"Полоцк\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/countries/45/cities",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"countries",
+								"45",
+								"cities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/v1/get city_admin",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMUg5NjZQQlYyTkY3NTBSQUdZR0RHOE45OSIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxODQ5MDE5NTM5fQ.egPyqc2MGdJP5uIZrlPoBgLJ0werYntt8dSrAGBfzZQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/countries/45/cities",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"countries",
+								"45",
+								"cities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/v1/ (ДОДЕЛАТЬ) edit city_admin zip code",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMUg5NjZQQlYyTkY3NTBSQUdZR0RHOE45OSIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxODQ5MDE5NTM5fQ.egPyqc2MGdJP5uIZrlPoBgLJ0werYntt8dSrAGBfzZQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"45\",\r\n  \"name\": \"Полоцк\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/countries/45/cities",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"countries",
+								"45",
+								"cities"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "camera",
+			"item": [
+				{
+					"name": "/api/v1/cameras",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMUg5NjZQQlYyTkY3NTBSQUdZR0RHOE45OSIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxODQ5MDE5NTM5fQ.egPyqc2MGdJP5uIZrlPoBgLJ0werYntt8dSrAGBfzZQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/cameras",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cameras"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/add camera",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMUg5NjZQQlYyTkY3NTBSQUdZR0RHOE45OSIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxODQ5MDE5NTM5fQ.egPyqc2MGdJP5uIZrlPoBgLJ0werYntt8dSrAGBfzZQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"model_id\": 1,\r\n  \"status_id\": 1,\r\n  \"object_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/cameras",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cameras"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/edit camera",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMUg5NjZQQlYyTkY3NTBSQUdZR0RHOE45OSIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxODQ5MDE5NTM5fQ.egPyqc2MGdJP5uIZrlPoBgLJ0werYntt8dSrAGBfzZQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"model_id\": 9,\r\n        \"status_id\": 1,\r\n        \"object_id\": 4,\r\n        \"id\": 11\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/cameras/13",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cameras",
+								"13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/delete cameras",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMUg5NjZQQlYyTkY3NTBSQUdZR0RHOE45OSIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxODQ5MDE5NTM5fQ.egPyqc2MGdJP5uIZrlPoBgLJ0werYntt8dSrAGBfzZQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model_id\": 1,\r\n    \"status_id\": 1,\r\n    \"object_id\": 1,\r\n    \"id\": 16\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/cameras/16",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cameras",
+								"16"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "camera model",
+			"item": [
+				{
+					"name": "/api/v1/cameras list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMUg5NjZQQlYyTkY3NTBSQUdZR0RHOE45OSIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxODQ5MDE5NTM5fQ.egPyqc2MGdJP5uIZrlPoBgLJ0werYntt8dSrAGBfzZQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/cameras/models",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cameras",
+								"models"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/add camera list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMUg5NjZQQlYyTkY3NTBSQUdZR0RHOE45OSIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxODQ5MDE5NTM5fQ.egPyqc2MGdJP5uIZrlPoBgLJ0werYntt8dSrAGBfzZQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"камера_кота\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/cameras/models",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cameras",
+								"models"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/Edit camera model",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMUg5NjZQQlYyTkY3NTBSQUdZR0RHOE45OSIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxODQ5MDE5NTM5fQ.egPyqc2MGdJP5uIZrlPoBgLJ0werYntt8dSrAGBfzZQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Terminator T-800\",\r\n    \"id\": 11\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/cameras/models/11",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cameras",
+								"models",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/Delete camera model",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMUg5NjZQQlYyTkY3NTBSQUdZR0RHOE45OSIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxODQ5MDE5NTM5fQ.egPyqc2MGdJP5uIZrlPoBgLJ0werYntt8dSrAGBfzZQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"камера_кота\",\r\n    \"id\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/cameras/models/10",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cameras",
+								"models",
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "object",
+			"item": [
+				{
+					"name": "/api/v1/Object list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMUg5NjZQQlYyTkY3NTBSQUdZR0RHOE45OSIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxODQ5MDE5NTM5fQ.egPyqc2MGdJP5uIZrlPoBgLJ0werYntt8dSrAGBfzZQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"city_id\": 1,\r\n    \"name\": \"Грошык\",\r\n    \"street\": \"Петруся Бровки\",\r\n    \"house_number\": \"12/3\",\r\n    \"id\": 1,\r\n    \"users\": [\r\n      {\r\n        \"first_name\": \"Vasily\",\r\n        \"last_name\": \"Ivanov\",\r\n        \"email\": \"mymail@gmail.com\",\r\n        \"login\": \"loginator\",\r\n        \"password\": \"apxyWpo12\",\r\n        \"city_id\": 213206,\r\n        \"role_id\": 0,\r\n        \"street\": \"Baker\",\r\n        \"house_number\": \"221\",\r\n        \"apartment\": \"1\",\r\n        \"id\": \"stringstringstringstringst\",\r\n        \"status_id\": 0\r\n      }\r\n    ],\r\n    \"cameras\": [\r\n      {\r\n        \"model_id\": 1,\r\n        \"status_id\": 1,\r\n        \"object_id\": 1,\r\n        \"id\": 1\r\n      }\r\n    ]\r\n  }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/objects",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"objects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/Add Object",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMUg5NjZQQlYyTkY3NTBSQUdZR0RHOE45OSIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxODQ5MDE5NTM5fQ.egPyqc2MGdJP5uIZrlPoBgLJ0werYntt8dSrAGBfzZQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"city_id\": 45,\r\n        \"name\": \"дайце грошы\",\r\n        \"street\": \"улица_Пушкина-колотушкина\",\r\n        \"house_number\": \"11/7\",\r\n        \"id\": 19,\r\n        \"users\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/objects",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"objects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/Add Object",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMUg5NjZQQlYyTkY3NTBSQUdZR0RHOE45OSIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxODQ5MDE5NTM5fQ.egPyqc2MGdJP5uIZrlPoBgLJ0werYntt8dSrAGBfzZQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"city_id\": 45,\r\n    \"name\": \"дайце грошы\",\r\n    \"street\": \"улица_Пушкина-колотушкина\",\r\n    \"house_number\": \"11/7\",\r\n    \"id\": 36\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/objects/36",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"objects",
+								"36"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/Delete object",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMUg5NjZQQlYyTkY3NTBSQUdZR0RHOE45OSIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxODQ5MDE5NTM5fQ.egPyqc2MGdJP5uIZrlPoBgLJ0werYntt8dSrAGBfzZQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"city_id\": 45,\r\n    \"name\": \"дайце грошы\",\r\n    \"street\": \"улица_Пушкина-колотушкина\",\r\n    \"house_number\": \"11/7\",\r\n    \"id\": 36\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/objects/36",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"objects",
+								"36"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user object",
+			"item": [
+				{
+					"name": "/api/v1/user object list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMUg5NjZQQlYyTkY3NTBSQUdZR0RHOE45OSIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxODQ5MDE5NTM5fQ.egPyqc2MGdJP5uIZrlPoBgLJ0werYntt8dSrAGBfzZQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/user/objects",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"objects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v1/Update user object",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMUg5NjZQQlYyTkY3NTBSQUdZR0RHOE45OSIsInR5cGUiOiJyZWZyZXNoIiwiZXhwIjoxODQ5MDE5NTM5fQ.egPyqc2MGdJP5uIZrlPoBgLJ0werYntt8dSrAGBfzZQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"name\": \"дайце грошыы\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/user/objects/35",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"objects",
+								"35"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://212.109.220.180",
+			"type": "string"
+		}
+	]
+}
