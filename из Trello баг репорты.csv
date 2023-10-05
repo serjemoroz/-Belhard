@@ -1,0 +1,669 @@
+Card ID,Card Name,Card URL,Card Description,Labels,Members,Due Date,Attachment Count,Attachment Links,Checklist Item Total Count,Checklist Item Completed Count,Vote Count,Comment Count,Last Activity Date,List ID,List Name,Board ID,Board Name,Archived,Start Date,Due Complete
+651ddc4d5c4ac1eccead760a,Баг Paint,https://trello.com/c/3x8B2XYN/38-%D0%B1%D0%B0%D0%B3-paint,,,,,0,,0,0,0,0,2023-10-04T21:43:29.157Z,64db856042a06a4f938fa32c,Backlog,64db855f49b6befc58c271e4,Belhard 15.08.2023,false,,false
+65022299c221a3cfa2a9ca71,В26. Неинформативная ошибка 400 Bad Request при добавлении администратором повторной модели камеры,https://trello.com/c/bPGt8eM1/34-%D0%B226-%D0%BD%D0%B5%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D0%B0%D1%8F-%D0%BE%D1%88%D0%B8%D0%B1%D0%BA%D0%B0-400-bad-request-%D0%BF%D1%80%D0%B8-%D0%B4%D0%BE%D0%B1%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B8-%D0%B0%D0%B4%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%BE%D0%BC-%D0%BF%D0%BE%D0%B2%D1%82%D0%BE%D1%80%D0%BD%D0%BE%D0%B9-%D0%BC%D0%BE%D0%B4%D0%B5%D0%BB%D0%B8-%D0%BA%D0%B0%D0%BC%D0%B5%D1%80%D1%8B,"**Найдено на build** [**212.109.220.180**](http://212.109.220.180/api/auth/login ""‌"")
+
+Шаги воспроизведения:
+
+1. Открыть Postman
+2. Залогиниться Администратором (""email"": [ilyasmail@gmail.com](mailto:ilyasmail@gmail.com ""‌""),   ""password"": 1234567*9 ), запрос POST: [http://212.109.220.180/api/auth/login](http://212.109.220.180/api/auth/login ""‌"")
+3. Создать модель камеры,
+   `{` ""name"": ""Xiaomi Mi"" `}`
+   запрос POST: [http://212.109.220.180/api/v1/cameras/models](http://212.109.220.180/api/v1/cameras/models ""‌"")
+4. Повторить шаг №3 создать повторно модель камеры
+   `{` **""name"": ""Xiaomi Mi""** `}`
+   запрос POST: [http://212.109.220.180/api/v1/cameras/models](http://212.109.220.180/api/v1/cameras/models ""‌"")
+
+Актуальный результат: Отображается ошибка 400 Bad Request с пояснением ""`Bad Request`""
+
+Ожидаемый результат: Отображается ошибка 422 с текстом ""Camera model name is not unique"" (например)
+
+### **Аналогичная неинформативная ошибка отображается при:**
+
+Добавление администратором городов с одинаковым id.",Приоритет 3 (green),marinatolstik,,0,,0,0,0,0,2023-09-25T13:47:00.474Z,64db856042a06a4f938fa32c,Backlog,64db855f49b6befc58c271e4,Belhard 15.08.2023,false,,false
+6501e5ecacaee4a82b611d34,B25. Ошибка 400 Bad Request при добавлении администратором страны с одинаковым названием,https://trello.com/c/hjqwd7aD/33-b25-%D0%BE%D1%88%D0%B8%D0%B1%D0%BA%D0%B0-400-bad-request-%D0%BF%D1%80%D0%B8-%D0%B4%D0%BE%D0%B1%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B8-%D0%B0%D0%B4%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%BE%D0%BC-%D1%81%D1%82%D1%80%D0%B0%D0%BD%D1%8B-%D1%81-%D0%BE%D0%B4%D0%B8%D0%BD%D0%B0%D0%BA%D0%BE%D0%B2%D1%8B%D0%BC-%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%D0%BC,"Шаги для воспроизведения:
+
+1. Открыть Postman.
+2. Отправить POST запроc      [{{url}}/api/auth/login](http://%7B%7Burl%7D%7D/api/auth/login ""‌"")   ,application/json,  c body  { ""email"": ""[isumail@gmail.com](mailto:isumail@gmail.com ""‌"")"", ""password"": ""isu5678*"" }
+3. Добавить страну. Отправить POST запрос [{{url}}/api/v1/countries](http://%7B%7Burl%7D%7D/api/v1/countries ""‌"") ,application/json, с  body  { ""name"": ""Вена"" }
+4. Повторить шаг №3 добавить страну с body { ""name"": ""Вена"" }
+
+Актуальный результат: Отображается ошибка 400 Bad Request   с текстом  ""Country name is not unique""
+
+Ожидаемый результат: Отображается ошибка 422   с текстом  ""Country name is not unique""
+
+Примечание: в требованиях указана ошибка 422
+
+**Найдено на build** [**212.109.220.180**](http://212.109.220.180/api/auth/login ""‌"")",Приоритет 3 (green),nataliavoronchuk,,0,,0,0,0,0,2023-09-14T08:04:15.084Z,64db856042a06a4f938fa32c,Backlog,64db855f49b6befc58c271e4,Belhard 15.08.2023,false,,false
+64ff3ae3fe7f757a72e8431a,"В.24 Поле ""email"" при регистрации юзера заполняется только кириллицей",https://trello.com/c/MsjqnsA1/32-%D0%B224-%D0%BF%D0%BE%D0%BB%D0%B5-email-%D0%BF%D1%80%D0%B8-%D1%80%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%B8-%D1%8E%D0%B7%D0%B5%D1%80%D0%B0-%D0%B7%D0%B0%D0%BF%D0%BE%D0%BB%D0%BD%D1%8F%D0%B5%D1%82%D1%81%D1%8F-%D1%82%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE-%D0%BA%D0%B8%D1%80%D0%B8%D0%BB%D0%BB%D0%B8%D1%86%D0%B5%D0%B9,"Шаги для воспроизведения:
+
+1. Открыть Postman
+   Авторизоваться как админ
+   {
+     ""email"": ""[superkotik777@gmail.com](mailto:superkotik777@gmail.com ""‌"")"",
+     ""password"": ""pass!login""
+   }
+2. Отправить запрос [http://212.109.220.180/api/v1/users](http://212.109.220.180/api/v1/users ""‌"")
+
+```
+{
+  ""first_name"": ""Mikhail"",
+  ""last_name"": ""Moroz"",
+  ""email"": ""собака@мэйл.ру"",
+  ""login"": ""kotovkiskis"",
+  ""password"": ""parol!password"",
+  ""city_id"": 224000,
+  ""street"": ""altaiskaya"",
+  ""house_number"": ""25"",
+  ""apartment"": ""19""
+}
+```
+
+‌
+
+Актуальный результат: Status 201
+Ожидаемый результат: Status 422 Validation Error",Приоритет 2 (yellow),sergeimoroz2,,1,https://trello.com/1/cards/64ff3ae3fe7f757a72e8431a/attachments/64ff3aee6330bd296d80a5b2/download/%D0%B1%D0%B0%D0%B3_11.jpg,0,0,0,0,2023-09-25T15:00:07.625Z,64db856042a06a4f938fa32c,Backlog,64db855f49b6befc58c271e4,Belhard 15.08.2023,false,,false
+64ff3848da499952d1dcdc84,"В.23 Поле ""login"" при регистрации присутствуют одни спецсимволами",https://trello.com/c/afyHbt5l/31-%D0%B223-%D0%BF%D0%BE%D0%BB%D0%B5-login-%D0%BF%D1%80%D0%B8-%D1%80%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%B8-%D0%BF%D1%80%D0%B8%D1%81%D1%83%D1%82%D1%81%D1%82%D0%B2%D1%83%D1%8E%D1%82-%D0%BE%D0%B4%D0%BD%D0%B8-%D1%81%D0%BF%D0%B5%D1%86%D1%81%D0%B8%D0%BC%D0%B2%D0%BE%D0%BB%D0%B0%D0%BC%D0%B8,"Шаги для воспроизведения:
+
+1. Открыть Postman
+   Авторизоваться как админ
+   {
+     ""email"": ""[superkotik777@gmail.com](mailto:superkotik777@gmail.com ""‌"")"",
+     ""password"": ""pass!login""
+   }
+2. Отправить запрос [http://212.109.220.180/api/v1/users](http://212.109.220.180/api/v1/users ""‌"")
+
+```
+
+  ""first_name"": ""Mikhail"",
+  ""last_name"": ""Moroz"",
+  ""email"": ""sobaka555@gmail.com"",
+  ""login"": ""#$%^^##$%^"",
+  ""password"": ""parol!password"",
+  ""city_id"": 224000,
+  ""street"": ""altaiskaya"",
+  ""house_number"": ""25"",
+  ""apartment"": ""19""
+}
+```
+
+‌
+
+Актуальный результат: Status 201
+Ожидаемый результат: Status 422 Validation Error",Приоритет 2 (yellow),sergeimoroz2,,1,https://trello.com/1/cards/64ff3848da499952d1dcdc84/attachments/64ff385d10605b4fc1b071f1/download/%D0%B1%D0%B0%D0%B3_10.jpg,0,0,0,0,2023-09-25T15:00:01.850Z,64db856042a06a4f938fa32c,Backlog,64db855f49b6befc58c271e4,Belhard 15.08.2023,false,,false
+64ff377c1149c0d23b5a6509,"B.22 В поле ""login"" при регистрации юзера присутствует кириллица",https://trello.com/c/Q9k0qt8E/30-b22-%D0%B2-%D0%BF%D0%BE%D0%BB%D0%B5-login-%D0%BF%D1%80%D0%B8-%D1%80%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%B8-%D1%8E%D0%B7%D0%B5%D1%80%D0%B0-%D0%BF%D1%80%D0%B8%D1%81%D1%83%D1%82%D1%81%D1%82%D0%B2%D1%83%D0%B5%D1%82-%D0%BA%D0%B8%D1%80%D0%B8%D0%BB%D0%BB%D0%B8%D1%86%D0%B0,"Шаги для воспроизведения:
+
+1. Открыть Postman
+   Авторизоваться как админ
+   {
+     ""email"": ""[superkotik777@gmail.com](mailto:superkotik777@gmail.com ""‌"")"",
+     ""password"": ""pass!login""
+   }
+2. Отправить запрос [POST http://212.109.220.180/api/](http://212.109.220.180/api/auth/register ""‌"")v1/users c body:
+
+```
+{
+  ""first_name"": ""Mikhail"",
+  ""last_name"": ""Moroz"",
+  ""email"": ""sobaka3434@gmail.com"",
+  ""login"": ""котовский"",
+  ""password"": ""parol!password"",
+  ""city_id"": 224000,
+  ""street"": ""altaiskaya"",
+  ""house_number"": ""25"",
+  ""apartment"": ""19""
+}
+```
+
+ДЛЯ примера:
+
+3\. Повтори шаг №2 со следующей тест датой в поле login:
+     все пробелы,  спец  символы….
+
+‌
+
+Актуальный результат: Status 201 created
+Ожидаемый результат: Status 422 Validation Error",Приоритет 2 (yellow),sergeimoroz2,,1,https://trello.com/1/cards/64ff377c1149c0d23b5a6509/attachments/64ff378af0ecd7dbca7d394e/download/%D0%B1%D0%B0%D0%B3_9.jpg,0,0,0,0,2023-09-25T14:59:53.773Z,64db856042a06a4f938fa32c,Backlog,64db855f49b6befc58c271e4,Belhard 15.08.2023,false,,false
+64ff335e4ccf797b41738937,"B.21 В поле ""password"" при регистрации юзера присутствуют одни спецсимволы",https://trello.com/c/j60miezd/29-b21-%D0%B2-%D0%BF%D0%BE%D0%BB%D0%B5-password-%D0%BF%D1%80%D0%B8-%D1%80%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%B8-%D1%8E%D0%B7%D0%B5%D1%80%D0%B0-%D0%BF%D1%80%D0%B8%D1%81%D1%83%D1%82%D1%81%D1%82%D0%B2%D1%83%D1%8E%D1%82-%D0%BE%D0%B4%D0%BD%D0%B8-%D1%81%D0%BF%D0%B5%D1%86%D1%81%D0%B8%D0%BC%D0%B2%D0%BE%D0%BB%D1%8B,"Шаги для воспроизведения:
+
+1. Открыть Postman
+   Авторизоваться как админ
+   {
+     ""email"": ""[superkotik777@gmail.com](mailto:superkotik777@gmail.com ""‌"")"",
+     ""password"": ""pass!login""
+   }
+2. Отправить запрос [POST http://212.109.220.180/api/](http://212.109.220.180/api/auth/register ""‌"")v1/users c body:
+
+```
+{
+  ""first_name"": ""Mikhail"",
+  ""last_name"": ""Moroz"",
+  ""email"": ""sobaka34111@gmail.com"",
+  ""login"": ""kotovskiikit"",
+  ""password"": ""#$@%^@$%^^#@^"",
+  ""city_id"": 224000,
+  ""street"": ""altaiskaya"",
+  ""house_number"": ""25"",
+  ""apartment"": ""19""
+}
+```
+
+Актуальный результат: Status 201 created
+Ожидаемый результат: Status 422 Validation Error",Приоритет 1 (red_dark),sergeimoroz2,,1,https://trello.com/1/cards/64ff335e4ccf797b41738937/attachments/64ff337e510c7b6349a7316b/download/%D0%B1%D0%B0%D0%B3_8.jpg,0,0,0,0,2023-09-25T14:59:48.215Z,64db856042a06a4f938fa32c,Backlog,64db855f49b6befc58c271e4,Belhard 15.08.2023,false,,false
+64ff319c4c7a17c62b0d93ed,"B.20 В поле ""password"" при регистрации юзера используется кириллица",https://trello.com/c/MLdxxuoa/28-b20-%D0%B2-%D0%BF%D0%BE%D0%BB%D0%B5-password-%D0%BF%D1%80%D0%B8-%D1%80%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%B8-%D1%8E%D0%B7%D0%B5%D1%80%D0%B0-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D1%83%D0%B5%D1%82%D1%81%D1%8F-%D0%BA%D0%B8%D1%80%D0%B8%D0%BB%D0%BB%D0%B8%D1%86%D0%B0,"Шаги для воспроизведения:
+
+1. Открыть Postman
+   Авторизоваться как админ
+   {
+     ""email"": ""[superkotik777@gmail.com](mailto:superkotik777@gmail.com ""‌"")"",
+     ""password"": ""pass!login""
+   }
+2. Отправить запрос [POST http://212.109.220.180/api/](http://212.109.220.180/api/auth/register ""‌"")v1/users c body:
+
+```
+{
+  ""first_name"": ""Mikhail"",
+  ""last_name"": ""Moroz"",
+  ""email"": ""sobaka341@gmail.com"",
+  ""login"": ""kotovskiiki"",
+  ""password"": ""парольимеет"",
+  ""city_id"": 224000,
+  ""street"": ""altaiskaya"",
+  ""house_number"": ""25"",
+  ""apartment"": ""19""
+}
+```
+
+Актуальный результат: Status 201 created
+Ожидаемый результат: Status 422 Validation Error",Приоритет 1 (red_dark),sergeimoroz2,,1,https://trello.com/1/cards/64ff319c4c7a17c62b0d93ed/attachments/64ff328da5ecd10c0e932843/download/%D0%B1%D0%B0%D0%B3_7.jpg,0,0,0,0,2023-09-25T14:59:41.991Z,64db856042a06a4f938fa32c,Backlog,64db855f49b6befc58c271e4,Belhard 15.08.2023,false,,false
+64fe1502829eb5693af27e05,"В.19 В поле ""House_number"" при регистрации юзера присутствуют только спецсимволы",https://trello.com/c/Own0BRdr/27-%D0%B219-%D0%B2-%D0%BF%D0%BE%D0%BB%D0%B5-housenumber-%D0%BF%D1%80%D0%B8-%D1%80%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%B8-%D1%8E%D0%B7%D0%B5%D1%80%D0%B0-%D0%BF%D1%80%D0%B8%D1%81%D1%83%D1%82%D1%81%D1%82%D0%B2%D1%83%D1%8E%D1%82-%D1%82%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE-%D1%81%D0%BF%D0%B5%D1%86%D1%81%D0%B8%D0%BC%D0%B2%D0%BE%D0%BB%D1%8B,"Шаги для воспроизведения:
+
+1. Открыть Postman
+   Авторизоваться как админ
+   {
+     ""email"": ""[superkotik777@gmail.com](mailto:superkotik777@gmail.com ""‌"")"",
+     ""password"": ""pass!login""
+   }
+2. Отправить запрос [http://212.109.220.180/api/v1/users](http://212.109.220.180/api/v1/users ""‌"")
+
+{
+""first_name"": ""Mikhail"",
+""last_name"": ""Moroz"",
+""email"": ""[sobaka3456@gmail.com](mailto:sobaka3456@gmail.com ""‌"")"",
+""login"": ""kotovskyui"",
+""password"": ""parol!password"",
+""city_id"": 224000,
+""street"": ""altaiskaya"",
+""house_number"": ""№;"",
+""apartment"": ""19""
+}
+
+Актуальный результат: Status 201
+Ожидаемый результат: Status 422 Validation Error",Приоритет 2 (yellow),sergeimoroz2,,1,https://trello.com/1/cards/64fe1502829eb5693af27e05/attachments/64fe157db1fb14b0de4d42da/download/%D0%B1%D0%B0%D0%B3_4.jpg,0,0,0,0,2023-09-25T14:59:35.072Z,64db856042a06a4f938fa32c,Backlog,64db855f49b6befc58c271e4,Belhard 15.08.2023,false,,false
+64fe0f8a7e5033d91046c49c,"B.18 Поле ""apartment"" при регистрации юзера пустое",https://trello.com/c/TB4dn22r/25-b18-%D0%BF%D0%BE%D0%BB%D0%B5-apartment-%D0%BF%D1%80%D0%B8-%D1%80%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%B8-%D1%8E%D0%B7%D0%B5%D1%80%D0%B0-%D0%BF%D1%83%D1%81%D1%82%D0%BE%D0%B5,"Шаги для воспроизведения:
+
+1. Открыть Postman
+   Авторизоваться как админ
+   {
+     ""email"": ""[superkotik777@gmail.com](mailto:superkotik777@gmail.com ""‌"")"",
+     ""password"": ""pass!login""
+   }
+2. Отправить запрос [POST http://212.109.220.180/api/](http://212.109.220.180/api/auth/register ""‌"")v1/users c body:
+   {
+     ""first_name"": ""Mikhailo"",
+     ""last_name"": ""Moroz"",
+     ""email"": ""[sobaka348@gmail.com](mailto:sobaka348@gmail.com ""‌"")"",
+     ""login"": ""kotovskiio"",
+     ""password"": ""parol!password"",
+     ""city_id"": 224000,
+     ""street"": ""altaiskaya"",
+     ""house_number"": ""25"",
+     ""apartment"": """"
+   }
+   Актуальный результат: Status 201
+   Ожидаемый результат: Status 422 Validation Error. См.
+
+![image.png](https://trello.com/1/cards/64fe0f8a7e5033d91046c49c/attachments/650093ac5b48f319277c9187/download/image.png)",Приоритет 2 (yellow),sergeimoroz2,,3,"https://trello.com/1/cards/64fe0f8a7e5033d91046c49c/attachments/64fe0fc1883bb5d381b3177c/download/%D0%B1%D0%B0%D0%B3_2.jpg, https://trello.com/1/cards/64fe0f8a7e5033d91046c49c/attachments/6500939393cbb6d97d246d44/download/image.png, https://trello.com/1/cards/64fe0f8a7e5033d91046c49c/attachments/650093ac5b48f319277c9187/download/image.png",0,0,0,0,2023-09-25T14:59:23.640Z,64db856042a06a4f938fa32c,Backlog,64db855f49b6befc58c271e4,Belhard 15.08.2023,false,,false
+64fe11565a04e6d3363a6d76,"B.17 Поле ""apartment"" при регистрации юзера заполняется только буквами",https://trello.com/c/rWYTgL5p/26-b17-%D0%BF%D0%BE%D0%BB%D0%B5-apartment-%D0%BF%D1%80%D0%B8-%D1%80%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%B8-%D1%8E%D0%B7%D0%B5%D1%80%D0%B0-%D0%B7%D0%B0%D0%BF%D0%BE%D0%BB%D0%BD%D1%8F%D0%B5%D1%82%D1%81%D1%8F-%D1%82%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE-%D0%B1%D1%83%D0%BA%D0%B2%D0%B0%D0%BC%D0%B8,"Шаги для воспроизведения:
+
+1. Открыть Postman
+   Авторизоваться как админ
+   {
+     ""email"": ""[superkotik777@gmail.com](mailto:superkotik777@gmail.com ""‌"")"",
+     ""password"": ""pass!login""
+   }
+2. Отправить запрос [POST http://212.109.220.180/api/](http://212.109.220.180/api/auth/register ""‌"")v1/users c body:
+   {
+   ""first_name"": ""Mikhail"",
+   ""last_name"": ""Moroz"",
+   ""email"": ""[sobaka349@gmail.com](mailto:sobaka349@gmail.com ""‌"")"",
+   ""login"": ""kotovskiyt"",
+   ""city_id"": 224000,
+   ""role_id"": 4,
+   ""street"": ""altaiskaya"",
+   ""house_number"": ""25"",
+   ""apartment"": ""буквы"",
+   }
+   Актуальный результат: Status 201
+   Ожидаемый результат: Status 422 Validation Error",Приоритет 2 (yellow),sergeimoroz2,,1,https://trello.com/1/cards/64fe11565a04e6d3363a6d76/attachments/64fe119da8e2aad519eacf12/download/%D0%B1%D0%B0%D0%B3_3.jpg,0,0,0,0,2023-09-25T14:59:16.436Z,64db856042a06a4f938fa32c,Backlog,64db855f49b6befc58c271e4,Belhard 15.08.2023,false,,false
+64fe0da4924e647e6f829837,"B.16 В поле ""apartment"" при регистрации юзера присутствуют только спецсимволы",https://trello.com/c/gG9dNPxH/24-b16-%D0%B2-%D0%BF%D0%BE%D0%BB%D0%B5-apartment-%D0%BF%D1%80%D0%B8-%D1%80%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%B8-%D1%8E%D0%B7%D0%B5%D1%80%D0%B0-%D0%BF%D1%80%D0%B8%D1%81%D1%83%D1%82%D1%81%D1%82%D0%B2%D1%83%D1%8E%D1%82-%D1%82%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE-%D1%81%D0%BF%D0%B5%D1%86%D1%81%D0%B8%D0%BC%D0%B2%D0%BE%D0%BB%D1%8B,"Шаги для воспроизведения:
+
+1. Открыть Postman
+   Авторизоваться как админ
+   {
+     ""email"": ""[superkotik777@gmail.com](mailto:superkotik777@gmail.com ""‌"")"",
+     ""password"": ""pass!login""
+   }
+2. Отправить запрос [POST http://212.109.220.180/api/](http://212.109.220.180/api/auth/register ""‌"")v1/users c body:
+   {
+     ""first_name"": ""Mikhailo"",
+     ""last_name"": ""Moroz"",
+     ""email"": ""[sobaka348@gmail.com](mailto:sobaka348@gmail.com ""‌"")"",
+     ""login"": ""kotovskiio"",
+     ""password"": ""parol!password"",
+     ""city_id"": 224000,
+     ""street"": ""altaiskaya"",
+     ""house_number"": ""25"",
+     ""apartment"": ""#$%""
+   }
+   Актуальный результат: Status 201
+   Ожидаемый результат: Status 422 Validation Error",Приоритет 2 (yellow),sergeimoroz2,,1,https://trello.com/1/cards/64fe0da4924e647e6f829837/attachments/64fe0ef7a7ed3674de2b4cf2/download/%D0%B1%D0%B0%D0%B3.jpg,0,0,0,0,2023-09-25T14:59:09.513Z,64db856042a06a4f938fa32c,Backlog,64db855f49b6befc58c271e4,Belhard 15.08.2023,false,,false
+64ee28174795eda3afb22d1f,B1. Test bug,https://trello.com/c/SW0pyXXm/6-b1-test-bug,"**Steps to reproduce :**
+
+1. a
+2. a
+3. a
+4. a
+5. a
+6. a
+7. a
+
+**Expected result:**
+
+**Actual result:**",,,,0,,0,0,0,0,2023-09-13T20:57:09.692Z,64db856042a06a4f938fa32c,Backlog,64db855f49b6befc58c271e4,Belhard 15.08.2023,false,,false
+64db858e0e2468b867ece7a1,Smoke testing,https://trello.com/c/0BvncPBZ/5-smoke-testing,,,,,0,,0,0,0,0,2023-09-13T20:56:59.532Z,64db856042a06a4f938fa32c,Backlog,64db855f49b6befc58c271e4,Belhard 15.08.2023,false,,false
+64db8588529e2330b5590373,Regression testing,https://trello.com/c/XjonWmgi/4-regression-testing,,,,,0,,0,0,0,0,2023-08-31T17:55:01.039Z,64db856042a06a4f938fa32c,Backlog,64db855f49b6befc58c271e4,Belhard 15.08.2023,false,,false
+64db857f48e675312248ce55,Bug triage,https://trello.com/c/Gm7cfWhc/3-bug-triage,,,,,0,,0,0,0,0,2023-08-31T17:55:01.039Z,64db856042a06a4f938fa32c,Backlog,64db855f49b6befc58c271e4,Belhard 15.08.2023,false,,false
+64db8560fe54fc89761417be,Project planing,https://trello.com/c/CbpAdesa/2-project-planing,,,,,0,,0,0,0,0,2023-08-31T17:55:01.052Z,64db856042a06a4f938fa32c,Backlog,64db855f49b6befc58c271e4,Belhard 15.08.2023,false,,false
+64db8560777636d69d73307c,Kickoff meeting,https://trello.com/c/DRSDhjOx/1-kickoff-meeting,,,,,0,,0,0,0,0,2023-08-31T17:55:01.041Z,64db856042a06a4f938fa32c,Backlog,64db855f49b6befc58c271e4,Belhard 15.08.2023,false,,false
+6502dafee061e299456fc08b,"B27. Неверный http status response code (400) при добавлении и редактировании камеры с несуществующими id в полях ""model_id"", ""status_id"", ""object_id""",https://trello.com/c/w8mY75kl/35-b27-%D0%BD%D0%B5%D0%B2%D0%B5%D1%80%D0%BD%D1%8B%D0%B9-http-status-response-code-400-%D0%BF%D1%80%D0%B8-%D0%B4%D0%BE%D0%B1%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B8-%D0%B8-%D1%80%D0%B5%D0%B4%D0%B0%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B8-%D0%BA%D0%B0%D0%BC%D0%B5%D1%80%D1%8B-%D1%81-%D0%BD%D0%B5%D1%81%D1%83%D1%89%D0%B5%D1%81%D1%82%D0%B2%D1%83%D1%8E%D1%89%D0%B8%D0%BC%D0%B8-id-%D0%B2-%D0%BF%D0%BE%D0%BB%D1%8F%D1%85-modelid-statusid,"Шаги для воспроизведения:
+
+1\.Открыть Postman
+
+2\.Авторизоваться как админ 2.1) POST [http://212.109.220.180/api/auth/register](http://212.109.220.180/api/auth/register ""‌"") application/JSON 2.2 ) Body Request {
+""email"": ""[foradminmail@gmail.com](mailto:foradminmail@gmail.com ""‌"")"",
+""password"": ""zxcv/bnm.""
+}
+
+3\. Указать несуществующую модель камеры 3.1) POST [http://212.109.220.180/api/v1/cameras](http://212.109.220.180/api/v1/cameras ""‌"") application/JSON
+
+3\.2) Body request
+
+{
+
+**""model_id"": 189**,
+
+""status_id"": 1,
+
+""object_id"": 1
+
+}
+
+4\. Указать несуществующий обьект 4.1) PATCH [http://212.109.220.180/api/v1/cameras/81](http://212.109.220.180/api/v1/cameras/81 ""‌"") application/JSON 4.2)
+
+{
+
+""model_id"": 1,
+
+""status_id"": 1,
+
+**""object_id"": 187**
+
+}
+
+‌
+
+Актуальный результат: Status code: **400** Bad request. Response body:
+
+{
+    ""detail"": ""Bad Request""
+}
+
+Ожидаемый результат: Status code: **422** Response body :
+
+{
+
+“detail”: “указать строку и причину ошибки”
+
+}",Приоритет 3 (green),ekaterina69318403,,0,,0,0,0,1,2023-09-26T17:16:32.636Z,6513116b27278bf8e47dc3d4,Sprint Backlog,64db855f49b6befc58c271e4,Belhard 15.08.2023,false,,false
+64f33a6aff5a9bb8d61c1ecd,B6(?). Все юзеры при добавлении присваивают одну и ту же роль (уточнить баг или фича*),https://trello.com/c/KVdrQNAP/11-b6-%D0%B2%D1%81%D0%B5-%D1%8E%D0%B7%D0%B5%D1%80%D1%8B-%D0%BF%D1%80%D0%B8-%D0%B4%D0%BE%D0%B1%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B8-%D0%BF%D1%80%D0%B8%D1%81%D0%B2%D0%B0%D0%B8%D0%B2%D0%B0%D1%8E%D1%82-%D0%BE%D0%B4%D0%BD%D1%83-%D0%B8-%D1%82%D1%83-%D0%B6%D0%B5-%D1%80%D0%BE%D0%BB%D1%8C-%D1%83%D1%82%D0%BE%D1%87%D0%BD%D0%B8%D1%82%D1%8C-%D0%B1%D0%B0%D0%B3-%D0%B8%D0%BB%D0%B8-%D1%84%D0%B8%D1%87%D0%B0,"Шаги для воспроизведения:
+
+1. Открыть Postman
+2. Залогиниться админом: 2.1 POST [http://212.109.220.180/api/auth/login](http://212.109.220.180/api/auth/login ""‌"")      2.2 Body request {   ""email"": ""[foradminmail@gmail.com](mailto:foradminmail@gmail.com ""‌"")"",   ""password"": ""zxcv/bnm."" }
+3. Добавить пользователя: 3.1 POST [http://212.109.220.180/api/v1/users](http://212.109.220.180/api/v1/users ""‌"") 3.2 Body request
+   ```
+   {
+     ""first_name"": ""Userttyy"",
+     ""last_name"": ""Katrinttyy"",
+     ""email"": ""foruyseyrmttail@gmail.com"",
+     ""login"": ""usertyrlyogin"",
+     ""password"": ""qwery/tyuirt/12op."",
+     ""city_id"": 38,
+     ""street"": ""Baker"",
+     ""house_number"": ""221"",
+     ""apartment"": ""1""
+   }
+   ```
+   ‌
+
+Актуальный результат: Status code: 201 Created. Cоздается учетная запись юзера всегда с одной только ролью  “role_id”: 4
+
+Ожидаемый результат: Status code: 201 Created. Создается учетная запись со своим значением роли",Приоритет 2 (yellow),ekaterina69318403,,0,,0,0,0,0,2023-09-26T17:14:48.156Z,6513116b27278bf8e47dc3d4,Sprint Backlog,64db855f49b6befc58c271e4,Belhard 15.08.2023,false,,false
+64f35cbb965bd36d7c375f44,B7. Администратор не может добавить страну с пробелом в названии,https://trello.com/c/RwmnVeaQ/12-b7-%D0%B0%D0%B4%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%BE%D1%80-%D0%BD%D0%B5-%D0%BC%D0%BE%D0%B6%D0%B5%D1%82-%D0%B4%D0%BE%D0%B1%D0%B0%D0%B2%D0%B8%D1%82%D1%8C-%D1%81%D1%82%D1%80%D0%B0%D0%BD%D1%83-%D1%81-%D0%BF%D1%80%D0%BE%D0%B1%D0%B5%D0%BB%D0%BE%D0%BC-%D0%B2-%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D0%B8,"Шаги для воспроизведения:
+
+1. Открыть Postman.
+2. Залогиниться администратором. Оправить POST запрос {{url}}/api/auth/login , application/json,  с ` ""email"": ""isumail@gmail.com""` `""password"": ""isu5678*`
+3. Добавить страну. Отправить POST запрос {{url}}/api/v1/countries , application/json,  с body   {
+     ""name"": ""Новая Зеландия""
+   }
+   ‌
+   Актуальный результат: Отображается  ошибка 422 с текстом`:  ""Value error, Field must contain only letters and dashes.""`
+   Ожидаемый результат: 201 Created. Страна добавляется.
+   Найдено на build    [212.109.220.180](http://212.109.220.180/api/v1/countries ""‌"")",Приоритет 2 (yellow),nataliavoronchuk,,0,,0,0,0,0,2023-09-26T17:14:48.148Z,6513116b27278bf8e47dc3d4,Sprint Backlog,64db855f49b6befc58c271e4,Belhard 15.08.2023,false,,false
+64f588ece302fbdbc7c555fc,"В8. Администратор не может зарегистрировать пользователя с именем с пробелом, дефисом",https://trello.com/c/cePKkkZi/13-%D0%B28-%D0%B0%D0%B4%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%BE%D1%80-%D0%BD%D0%B5-%D0%BC%D0%BE%D0%B6%D0%B5%D1%82-%D0%B7%D0%B0%D1%80%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C-%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8F-%D1%81-%D0%B8%D0%BC%D0%B5%D0%BD%D0%B5%D0%BC-%D1%81-%D0%BF%D1%80%D0%BE%D0%B1%D0%B5%D0%BB%D0%BE%D0%BC-%D0%B4%D0%B5%D1%84%D0%B8%D1%81%D0%BE%D0%BC,"Найдено на build [212.109.220.180](http://212.109.220.180/api/v1/countries ""‌"")
+
+Шаги воспроизведения:
+
+1. Открыть Postman
+2. Залогиниться Администратором (""email"": [ilyasmail@gmail.com](mailto:ilyasmail@gmail.com ""‌""),   ""password"": 1234567*9 ), запрос POST: [http://212.109.220.180/api/auth/login](http://212.109.220.180/api/auth/login ""‌"")
+3. Создать пользователя,
+   `{` **""first_name"": ""Яна-Алина"",**
+     ""last_name"": ""Бурова"",
+     ""email"": ""[ybmail@gmail.com](mailto:ybmail@gmail.com ""‌"")"",
+     ""login"": ""video03"",
+     ""password"": ""asd*1236"",
+     ""city_id"": 224000,
+     ""street"": ""Bratskaya"",
+     ""house_number"": ""4"",
+     ""apartment"": ""15"" `}`
+   запрос POST: [http://212.109.220.180/api/v1/users](http://212.109.220.180/api/v1/users ""‌"")
+
+Актуальный результат: Ошибка 422 Unprocessable Entity `Value error, Field must contain letters`.
+
+Ожидаемый результат: Пользователь зарегистрирован.",Приоритет 2 (yellow),marinatolstik,,0,,0,0,0,0,2023-09-26T17:14:48.146Z,6513116b27278bf8e47dc3d4,Sprint Backlog,64db855f49b6befc58c271e4,Belhard 15.08.2023,false,,false
+64f58ab778635380faf21e57,"В9. Администратор не может зарегистрировать пользователя с фамилией с пробелом, дефисом",https://trello.com/c/HFNKgC6r/14-%D0%B29-%D0%B0%D0%B4%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%BE%D1%80-%D0%BD%D0%B5-%D0%BC%D0%BE%D0%B6%D0%B5%D1%82-%D0%B7%D0%B0%D1%80%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C-%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8F-%D1%81-%D1%84%D0%B0%D0%BC%D0%B8%D0%BB%D0%B8%D0%B5%D0%B9-%D1%81-%D0%BF%D1%80%D0%BE%D0%B1%D0%B5%D0%BB%D0%BE%D0%BC-%D0%B4%D0%B5%D1%84%D0%B8%D1%81%D0%BE%D0%BC,"**Найдено на build** [**212.109.220.180**](http://212.109.220.180/api/auth/login ""‌"")
+
+Шаги воспроизведения:
+
+1. Открыть Postman
+2. Залогиниться Администратором (""email"": [ilyasmail@gmail.com](mailto:ilyasmail@gmail.com ""‌""),   ""password"": 1234567*9 ), запрос POST: [http://212.109.220.180/api/auth/login](http://212.109.220.180/api/auth/login ""‌"")
+3. Создать пользователя,
+   `{` ""first_name"": ""Янина"",  
+    **""last_name"": ""Бурова-Кивко""**,  
+    ""email"": ""[ybmail@gmail.com](mailto:ybmail@gmail.com ""‌"")"",  
+   ""login"": ""video03"",  
+   ""password"": ""asd*1236"",   
+   ""city_id"": 224000,   
+   ""street"": ""Bratskaya"",   
+   ""house_number"": ""4"",   
+   ""apartment"": ""15"" `}`
+   запрос POST: [http://212.109.220.180/api/v1/users](http://212.109.220.180/api/v1/users ""‌"")
+
+Актуальный результат: Ошибка 422 Unprocessable Entity `Value error, Field must contain letters`.
+
+Ожидаемый результат: Пользователь зарегистрирован.",Приоритет 2 (yellow),marinatolstik,,0,,0,0,0,0,2023-09-26T17:14:48.143Z,6513116b27278bf8e47dc3d4,Sprint Backlog,64db855f49b6befc58c271e4,Belhard 15.08.2023,false,,false
+64f58b5035a336e66b5fe70c,В10. Администратор может зарегистрировать пользователя с пустым значением логина,https://trello.com/c/CIWpn3TM/15-%D0%B210-%D0%B0%D0%B4%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%BE%D1%80-%D0%BC%D0%BE%D0%B6%D0%B5%D1%82-%D0%B7%D0%B0%D1%80%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C-%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8F-%D1%81-%D0%BF%D1%83%D1%81%D1%82%D1%8B%D0%BC-%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC-%D0%BB%D0%BE%D0%B3%D0%B8%D0%BD%D0%B0,"**Найдено на build** [**212.109.220.180**](http://212.109.220.180/api/auth/login ""‌"")
+
+Шаги воспроизведения:
+
+1. Открыть Postman
+2. Залогинится Администратором (""email"": [ilyasmail@gmail.com](mailto:ilyasmail@gmail.com ""‌"") ,   ""password"": 1234567*9 ), запрос POST: [http://212.109.220.180/api/auth/login](http://212.109.220.180/api/auth/login ""‌"")
+3. Создать пользователя,
+   `{`""first_name"": ""Яна"",   
+   ""last_name"": ""Кивко"",   
+   ""email"": ""[mailynka@gmail.com](mailto:mailynka@gmail.com ""‌"")"",   
+   **""login"": """",**   
+   ""password"": ""asd*12311"",   
+   ""city_id"": 224000,  
+    ""street"": ""1"",   
+   ""house_number"": ""4"",   
+   ""apartment"": ""15"" `}`
+   запрос POST: [http://212.109.220.180/api/v1/users](http://212.109.220.180/api/v1/users ""‌"")
+
+Актуальный результат: Пользователь зарегистрирован. 201 Created.
+
+Ожидаемый результат: Пользователь не зарегистрирован.",Приоритет 2 (yellow),marinatolstik,,1,https://trello.com/1/cards/64f58b5035a336e66b5fe70c/attachments/64f62d06888b291d798a6e77/download/Screenshot_1.jpg,0,0,0,0,2023-09-26T17:14:48.140Z,6513116b27278bf8e47dc3d4,Sprint Backlog,64db855f49b6befc58c271e4,Belhard 15.08.2023,false,,false
+64f5df773697a950b4de0eea,"B11. Администратор может добавить страну с названием, содержащем только тире.",https://trello.com/c/6ubRVOkI/16-b11-%D0%B0%D0%B4%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%BE%D1%80-%D0%BC%D0%BE%D0%B6%D0%B5%D1%82-%D0%B4%D0%BE%D0%B1%D0%B0%D0%B2%D0%B8%D1%82%D1%8C-%D1%81%D1%82%D1%80%D0%B0%D0%BD%D1%83-%D1%81-%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%D0%BC-%D1%81%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D1%89%D0%B5%D0%BC-%D1%82%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE-%D1%82%D0%B8%D1%80%D0%B5,"Шаги для воспроизведения:
+
+1. Открыть Postman.
+2. Залогиниться администратором. Отправить запрос POST {{url}}/api/auth/login, application/json с body `""email"": ""isumail@gmail.com""` `""password"": ""isu5678*`
+3. Добавить страну. Отправить запрос  POST {{url}}/api/v1/countries, application/json c body {
+     ""name"": ""---""
+   }
+   Актуальный результат: 201 Created.   В теле ответа приходит {
+           ""name"": ""---"",
+           ""id"": 62
+       }
+   Ожидаемый результат: Отображается ошибка 422 с текстом `""Value error, Field must contain only letters and dashes.""              `
+   Примечание: Можно добавить город с названием , содержащим только тире.                                                                                              Найдено на build [212.109.220.180](http://212.109.220.180/api/v1/countries ""‌"")",Приоритет 2 (yellow),nataliavoronchuk,,0,,0,0,0,0,2023-09-26T17:14:48.124Z,6513116b27278bf8e47dc3d4,Sprint Backlog,64db855f49b6befc58c271e4,Belhard 15.08.2023,false,,false
+64f5e5167d525a62167cb7e3,"B12. Поле ""House_number"" при добавлении юзера содержит только буквы",https://trello.com/c/Rn1hDGDN/17-b12-%D0%BF%D0%BE%D0%BB%D0%B5-housenumber-%D0%BF%D1%80%D0%B8-%D0%B4%D0%BE%D0%B1%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B8-%D1%8E%D0%B7%D0%B5%D1%80%D0%B0-%D1%81%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B8%D1%82-%D1%82%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE-%D0%B1%D1%83%D0%BA%D0%B2%D1%8B,"Шаги для воспроизведения:
+
+1. Открыть Postman
+2. Авторизоваться как админ
+   {
+     ""email"": ""[superkotik777@gmail.com](mailto:superkotik777@gmail.com ""‌"")"",
+     ""password"": ""pass!login""
+   }
+   ‌
+3. POST [http://212.109.220.180/api/v1/users](http://212.109.220.180/api/v1/users ""‌"")
+   {
+   ""first_name"": ""Mikhaila"",
+   ""last_name"": ""Moroza"",
+   ""email"": ""[sobaka345@gmail.com](mailto:sobaka345@gmail.com ""‌"")"",
+   ""login"": ""logcdoger"",
+   ""password"": ""parol!password"",
+   ""city_id"": 224000,
+   ""street"": ""altaiskaya"",
+   ""house_number"": ""буквы"",
+   ""apartment"": ""19""
+   }
+
+Актуальный результат: Status code: 201 Created.
+
+Ожидаемый результат: Status code: 422 Номер дома обязательно должен состоять из чисел больше “0”",Приоритет 2 (yellow),sergeimoroz2,,1,https://trello.com/1/cards/64f5e5167d525a62167cb7e3/attachments/64fe1b3f6296288f73d9a446/download/%D0%B1%D0%B0%D0%B3_5.jpg,0,0,0,0,2023-09-26T17:14:48.124Z,6513116b27278bf8e47dc3d4,Sprint Backlog,64db855f49b6befc58c271e4,Belhard 15.08.2023,false,,false
+64f5e770d7b042c6263fab47,"B13. Поле ""apartment"" содержит спецсимволы при регистрации пользователя администратором",https://trello.com/c/KBsbaFIE/18-b13-%D0%BF%D0%BE%D0%BB%D0%B5-apartment-%D1%81%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B8%D1%82-%D1%81%D0%BF%D0%B5%D1%86%D1%81%D0%B8%D0%BC%D0%B2%D0%BE%D0%BB%D1%8B-%D0%BF%D1%80%D0%B8-%D1%80%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%B8-%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8F-%D0%B0%D0%B4%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%BE%D0%BC,"Шаги для воспроизведения
+
+1. Открыть Postman
+2. Авторизоваться как админ 2.1) POST [http://212.109.220.180/api/auth/register](http://212.109.220.180/api/auth/register ""‌"") 2.2 ) Body Request {
+   ""email"": ""[foradminmail@gmail.com](mailto:foradminmail@gmail.com ""‌"")"",
+   ""password"": ""zxcv/bnm.""
+   }
+3. Добавить пользователя 3.1) POST  [http://212.109.220.180/api/v1/users](http://212.109.220.180/api/v1/users ""‌"") 3.2 ) Body request {   ""first\_name"": ""Катя"",   ""last\_name"": ""Возьми"",   ""email"": ""[telephone@gmail.com](mailto:telephone@gmail.com ""‌"")"",   ""login"": ""'этоонэтоон"",   ""password"": ""звонит/.12"",   ""city\_id"": 38,   ""street"": ""Baker"",   ""house\_number"": ""221"",   **""apartment"": ""/""** }
+   ‌
+
+Актуальный результат: Status code: 201 Created.
+
+Ожидаемый результат: Status code: 422 Недопустимое значение. Ожидается ввод цифр и/или букв.",Приоритет 3 (green),ekaterina69318403,,0,,0,0,0,0,2023-09-26T17:14:48.122Z,6513116b27278bf8e47dc3d4,Sprint Backlog,64db855f49b6befc58c271e4,Belhard 15.08.2023,false,,false
+64f60ceeec219d6b3baee16c,B15. Администратор может указать пустое значение номера дома при регистрации пользователя,https://trello.com/c/mRklswuU/20-b15-%D0%B0%D0%B4%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%BE%D1%80-%D0%BC%D0%BE%D0%B6%D0%B5%D1%82-%D1%83%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C-%D0%BF%D1%83%D1%81%D1%82%D0%BE%D0%B5-%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BD%D0%BE%D0%BC%D0%B5%D1%80%D0%B0-%D0%B4%D0%BE%D0%BC%D0%B0-%D0%BF%D1%80%D0%B8-%D1%80%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%B8-%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8F,"Шаги для воспроизведения:
+
+1. Открыть Postman
+2. Авторизоваться как админ 2.1) POST [http://212.109.220.180/api/auth/register](http://212.109.220.180/api/auth/register ""‌"") 2.2 ) Body Request {
+   ""email"": ""[foradminmail@gmail.com](mailto:foradminmail@gmail.com ""‌"")"",
+   ""password"": ""zxcv/bnm.""
+   }
+3. Добавить юзера 3.1) POST [http://212.109.220.180/api/v1/users](http://212.109.220.180/api/v1/users ""‌"") 3.2) Body request
+   ```
+   {
+     ""first_name"": ""Katerina"",
+     ""last_name"": ""theFirst"",
+     ""email"": ""wwwLeningrad@gmail.com"",
+     ""login"": ""spbto4ka"",
+     ""password"": ""spb/.ru"",
+     ""city_id"": 38,
+     ""street"": ""Baker"",
+     ""house_number"": """",
+     ""apartment"": ""2""
+   }
+   ```
+
+Актуальный результат: Status code: 201 Created.
+
+Ожидаемый результат: Status code: 422 Поле “house_number” обязательно для заполнения",Приоритет 2 (yellow),ekaterina69318403,,0,,0,0,0,0,2023-09-26T17:14:48.118Z,6513116b27278bf8e47dc3d4,Sprint Backlog,64db855f49b6befc58c271e4,Belhard 15.08.2023,false,,false
+6502e827a2202099718177dd,"B28. Администратор может добавить объект с пустыми полями ""name"", ""street"", ""house_number""",https://trello.com/c/wab7pEH1/36-b28-%D0%B0%D0%B4%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%BE%D1%80-%D0%BC%D0%BE%D0%B6%D0%B5%D1%82-%D0%B4%D0%BE%D0%B1%D0%B0%D0%B2%D0%B8%D1%82%D1%8C-%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82-%D1%81-%D0%BF%D1%83%D1%81%D1%82%D1%8B%D0%BC%D0%B8-%D0%BF%D0%BE%D0%BB%D1%8F%D0%BC%D0%B8-name-street-housenumber,"1. Открыть Postman
+2. Авторизоваться как админ. POST [http://212.109.220.180/api/auth/register](http://212.109.220.180/api/auth/register ""‌"") Body Request {
+   ""email"": ""`pochtakotaodin@gmail.com`"",
+   ""password"": ""meow12!Meow""
+   }
+3. Добавить объект с пустым полем ""name"". POST [http://212.109.220.180/api/v1/objects](http://212.109.220.180/api/v1/objects ""‌"")
+   {     ""city\_id"": 222000,     ""name"": """",     ""street"": ""string"",     ""house\_number"": ""string"" }
+4. Response: 201 Created
+   ‌
+5. Добавить объект с пустым полем ""street"". POST [http://212.109.220.180/api/v1/objects](http://212.109.220.180/api/v1/objects ""‌"")
+   {     ""city\_id"": 222000,     ""name"": ""string"",     ""street"": """",     ""house\_number"": ""string"" }
+6. Response: 201 Created
+7. Добавить объект с пустым полем ""house_number"". POST [http://212.109.220.180/api/v1/objects](http://212.109.220.180/api/v1/objects ""‌"")
+   {     ""city\_id"": 222000,     ""name"": ""string"",     ""street"": ""string"",     ""house\_number"": """" }
+8. Response: 201 Created
+
+Актуальный результат: Status code: 201 Created.
+
+Ожидаемый результат: Status code: 422 Поля ""name"", ""street"", ""house_number"" обязательны для заполнения.",Приоритет 2 (yellow),tayab12,,0,,0,0,0,0,2023-09-26T17:14:48.108Z,6513116b27278bf8e47dc3d4,Sprint Backlog,64db855f49b6befc58c271e4,Belhard 15.08.2023,false,,false
+64f8e8f3cbf8183d4810b2a8,У2. Нет запроса на удаление одного из городов страны.,https://trello.com/c/Ob9TQCyy/22-%D1%832-%D0%BD%D0%B5%D1%82-%D0%B7%D0%B0%D0%BF%D1%80%D0%BE%D1%81%D0%B0-%D0%BD%D0%B0-%D1%83%D0%B4%D0%B0%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BE%D0%B4%D0%BD%D0%BE%D0%B3%D0%BE-%D0%B8%D0%B7-%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BE%D0%B2-%D1%81%D1%82%D1%80%D0%B0%D0%BD%D1%8B,Необходимо дополнить запрос на удаление определенного города страны.,Приоритет 2 (yellow),nataliavoronchuk,,0,,0,0,0,0,2023-09-26T17:15:38.828Z,64db8560cfcbe17e0b30e103,Implimenting,64db855f49b6befc58c271e4,Belhard 15.08.2023,false,,false
+64f1cc380862c3b381bf966d,У1. Менеджер не может отправить запрос на просмотр зарегистрированы пользователей,https://trello.com/c/JXKhQGaM/10-%D1%831-%D0%BC%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%B5%D1%80-%D0%BD%D0%B5-%D0%BC%D0%BE%D0%B6%D0%B5%D1%82-%D0%BE%D1%82%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D1%82%D1%8C-%D0%B7%D0%B0%D0%BF%D1%80%D0%BE%D1%81-%D0%BD%D0%B0-%D0%BF%D1%80%D0%BE%D1%81%D0%BC%D0%BE%D1%82%D1%80-%D0%B7%D0%B0%D1%80%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D1%8B-%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D0%B5%D0%B9,"**Запрос на улучшение. Найдено на build** [**212.109.220.180**](http://212.109.220.180/api/v1/countries ""‌"")
+
+Шаги воспроизведения:
+
+1. Открыть Postman
+2. Залогиниться Администратором  (""email"": ""ilyasmail@gmail.com"",
+     ""password"": ""1234567*9""), запрос POST: [http://212.109.220.180/api/auth/login](http://212.109.220.180/api/auth/login ""‌"")
+3. Создать пользователя,
+   `{` \_""\_first_name"": ""V"",
+     ""last_name"": ""AliSamil"",
+     ""email"": ""[vamail@gmail.com](mailto:vamail@gmail.com ""‌"")"",
+     ""login"": ""video01"",
+     ""password"": ""asd1234"",
+     ""city_id"": 224000,
+     ""street"": ""Bratskaya"",
+     ""house_number"": ""2"",
+     ""apartment"": ""15"" `}`
+   запрос POST: [http://212.109.220.180/api/v1/users](http://212.109.220.180/api/v1/users ""‌"")
+4. Отправить запрос на получение всех зарегистрированных пользователей, запрос GET [http://212.109.220.180/api/v1/users](http://212.109.220.180/api/v1/users ""‌"")
+
+Актуальный результат: Ошибка 405 Method Not Allowed.
+
+Ожидаемый результат: Выдается список зарегистрированных пользователей.
+
+_**Примечание:**_ Запрос на просмотр пользователей не предусмотрен Swagger UI, но он необходим для нужд администратора и для дальнейшего тестирования..",Приоритет 2 (yellow),marinatolstik,,0,,0,0,0,0,2023-09-26T17:16:33.345Z,64db8560cfcbe17e0b30e103,Implimenting,64db855f49b6befc58c271e4,Belhard 15.08.2023,false,,false
+64f0d3f566db301e18b1f880,B3. Пользователь может зарегистрироваться с некорректным паролем,https://trello.com/c/C5gcHGOj/8-b3-%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C-%D0%BC%D0%BE%D0%B6%D0%B5%D1%82-%D0%B7%D0%B0%D1%80%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%D1%81%D1%8F-%D1%81-%D0%BD%D0%B5%D0%BA%D0%BE%D1%80%D1%80%D0%B5%D0%BA%D1%82%D0%BD%D1%8B%D0%BC-%D0%BF%D0%B0%D1%80%D0%BE%D0%BB%D0%B5%D0%BC,"Шаги для воспроизведения:
+
+1. Открыть Postman
+2. Отправить запрос [POST http://212.109.220.180/api/auth/register](http://212.109.220.180/api/auth/register ""‌"") c body:
+
+```
+{
+    ""first_name"": ""User"",
+    ""last_name"": ""Katty"",
+    ""email"": ""foruserr1mai2@gmail.com"",
+    ""login"": ""kattylogin2"",
+    ""password"": ""aaaaaaaa"",
+    ""city_id"": 224000,
+    ""street"": ""Yagodnaya"",
+    ""house_number"": ""6669"",
+    ""apartment"": ""103""
+}
+```
+
+Актуальный результат: Пользователь создан 201
+
+Ожидаемый результат: Отображается ошибка : 422 с текстом `""Value error, Field must contain letters, numbers, / or dashes.""`",Приоритет 1 (red_dark),tayab12,,0,,0,0,0,0,2023-09-26T17:15:40.717Z,64db8560cfcbe17e0b30e103,Implimenting,64db855f49b6befc58c271e4,Belhard 15.08.2023,false,,false
+64f9840c718079fad4e276f1,В5. Администратор может создать модель камеры с пустым названием,https://trello.com/c/c4w225oW/23-%D0%B25-%D0%B0%D0%B4%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%BE%D1%80-%D0%BC%D0%BE%D0%B6%D0%B5%D1%82-%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D1%82%D1%8C-%D0%BC%D0%BE%D0%B4%D0%B5%D0%BB%D1%8C-%D0%BA%D0%B0%D0%BC%D0%B5%D1%80%D1%8B-%D1%81-%D0%BF%D1%83%D1%81%D1%82%D1%8B%D0%BC-%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%D0%BC,"**Найдено на build** [**212.109.220.180**](http://212.109.220.180/api/auth/login ""‌"")
+
+Шаги воспроизведения:
+
+1. Открыть Postman
+2. Залогинится Администратором (""email"": [ilyasmail@gmail.com](mailto:ilyasmail@gmail.com ""‌"") ,   ""password"": 1234567*9 ), запрос POST: [http://212.109.220.180/api/auth/login](http://212.109.220.180/api/auth/login ""‌"")
+3. Создать модель камеры,
+   `{`   **""name"": """"**  `}`
+   запрос POST: [http://212.109.220.180/api/v1/cameras/models](http://212.109.220.180/api/v1/cameras/models ""‌"")
+
+Актуальный результат: Модель камеры создана. 201 Created.
+
+Ожидаемый результат: Модель камены не создана.",Приоритет 2 (yellow),marinatolstik,,0,,0,0,0,0,2023-09-26T17:16:34.308Z,64db8560181c94c5fead46c8,Done,64db855f49b6befc58c271e4,Belhard 15.08.2023,false,,false
+64f5e8a0ee57d76e70f3218f,В14. Количество символов превышает 255 в указании номера дома при регистрации пользователя Администратором,https://trello.com/c/JA0B41Ym/19-%D0%B214-%D0%BA%D0%BE%D0%BB%D0%B8%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%BE-%D1%81%D0%B8%D0%BC%D0%B2%D0%BE%D0%BB%D0%BE%D0%B2-%D0%BF%D1%80%D0%B5%D0%B2%D1%8B%D1%88%D0%B0%D0%B5%D1%82-255-%D0%B2-%D1%83%D0%BA%D0%B0%D0%B7%D0%B0%D0%BD%D0%B8%D0%B8-%D0%BD%D0%BE%D0%BC%D0%B5%D1%80%D0%B0-%D0%B4%D0%BE%D0%BC%D0%B0-%D0%BF%D1%80%D0%B8-%D1%80%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%B8-%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8F-%D0%B0%D0%B4%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%BE%D0%BC,"Шаги для воспроизведения:
+
+1. Открыть Postman
+2. Авторизоваться как админ 2.1) POST [http://212.109.220.180/api/auth/register](http://212.109.220.180/api/auth/register ""‌"") 2.2 ) Body Request {
+   ""email"": ""[foradminmail@gmail.com](mailto:foradminmail@gmail.com ""‌"")"",
+   ""password"": ""zxcv/bnm.""
+   }
+3. Добавить пользователя, в строке “house_number” ввести **256** цифр  3.1) POST [http://212.109.220.180/api/v1/users](http://212.109.220.180/api/v1/users ""‌"") 3.2) Body Request {   ""first\_name"": ""Katya"",   ""last\_name"": ""возьмителефон"",   ""email"": ""[etoonzvonit@gma1il.com](mailto:etoonzvonit@gma1il.com ""‌"")"",   ""login"": ""katyavozmy"",   ""password"": ""1234567.12346367812/"",   ""city_id"": 38,   ""street"": ""Baker"",   **""house_number"": ""1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456""**,   ""apartment"": ""2"" }
+
+Актуальный результат: Status code: 201 Created.
+
+Ожидаемый результат: Status code: 422 Количество символов превышает допустимое значение в строке “house_number”
+
+### Activity",Приоритет 3 (green),"ekaterina69318403, sergeimoroz2",,0,,0,0,0,1,2023-09-26T17:16:14.910Z,64db8560181c94c5fead46c8,Done,64db855f49b6befc58c271e4,Belhard 15.08.2023,false,,false
+64f0dd25d4642c637b15f47f,B4. Администратор не может добавить город с цифрой в названии.,https://trello.com/c/H5BiiFmw/9-b4-%D0%B0%D0%B4%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%BE%D1%80-%D0%BD%D0%B5-%D0%BC%D0%BE%D0%B6%D0%B5%D1%82-%D0%B4%D0%BE%D0%B1%D0%B0%D0%B2%D0%B8%D1%82%D1%8C-%D0%B3%D0%BE%D1%80%D0%BE%D0%B4-%D1%81-%D1%86%D0%B8%D1%84%D1%80%D0%BE%D0%B9-%D0%B2-%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D0%B8,"Шаги воспроизведения:
+
+1. Открыть Postman.
+2. Залогиниться администратором. Отправить запрос POST  {{url}}/api/auth/login,   application/json c `""email"": ""isumail@gmail.com""` `""password"": ""isu5678*""`
+3. Добавить страну. Отправить запрос POST {{url}}/api/v1/countries, application/json c body {   ""name"": ""Земля"" }        В ответе  приходит ее id (пример: {
+       ""name"": ""Земля"",
+       ""id"": 55
+   }
+4. Добавить город в страну “Земля“. Отправить запрос POST {{url}}/api/v1/countries/55/cities, application/json c body {
+     ""id"": 256777,
+     ""name"": ""Челябинск-140""
+   }
+   Актуальный результат: Отображается ошибка 422 с текстом `""Value error, Field must contain only letters and dashes."".`
+   Ожидаемый результат: 201 Created. Город добавляется.
+
+Примечание: Также нельзя добавить город с пробелом в названии (пример: Кривой Рог)
+
+Найдено на build  [212.109.220.180](http://212.109.220.180/api/v1/countries ""‌"")",Приоритет 2 (yellow),nataliavoronchuk,,0,,0,0,0,0,2023-09-26T17:16:29.649Z,64db8560181c94c5fead46c8,Done,64db855f49b6befc58c271e4,Belhard 15.08.2023,false,,false
+64f74f554410c206a3f94646,B16.Невозможно редактировать город по его почтовому индексу.,https://trello.com/c/b7e00tdO/21-b16%D0%BD%D0%B5%D0%B2%D0%BE%D0%B7%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE-%D1%80%D0%B5%D0%B4%D0%B0%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C-%D0%B3%D0%BE%D1%80%D0%BE%D0%B4-%D0%BF%D0%BE-%D0%B5%D0%B3%D0%BE-%D0%BF%D0%BE%D1%87%D1%82%D0%BE%D0%B2%D0%BE%D0%BC%D1%83-%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%D1%83,"Шаги для воспроизведения:
+
+1. Открыть Postman.
+2. Авторизоваться как админ:    ""email"": ""s[uperkotik777@gmail.com""](mailto:superkotik777@gmail.com ""‌"")
+     ""password"": ""pass!login"".
+3. Создать город методом POST [http://212.109.220.180/api/v1/countries/45/cities](http://212.109.220.180/api/v1/countries/45/cities ""‌"")
+4. Отправить запрос PATCH  [http://212.109.220.180/api/v1/countries/45/cities](http://212.109.220.180/api/v1/countries/45/cities ""‌"")
+   {     ""id"": 46,    
+    ""name"": ""Полоцк"" }
+5. Актуальный результат: 404 not found
+   `""detail"": ""City not found""`.
+6. Ожидаемый результат: 200 ОК индекс города поменялся.",Приоритет 2 (yellow),sergeimoroz2,,1,https://trello.com/1/cards/64f74f554410c206a3f94646/attachments/64f753c3de7dc991b7f603b4/download/Screenshot_1.jpg,0,0,0,1,2023-09-26T17:16:13.545Z,651310b5ed3bdf6d4ae5dbbe,Validation,64db855f49b6befc58c271e4,Belhard 15.08.2023,false,,false
+64f0cbc82c9ee484a24d4ec7,"B2. Администратор не может войти в систему при удалении города, на который он зарегистрирован",https://trello.com/c/9qJQCLml/7-b2-%D0%B0%D0%B4%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%BE%D1%80-%D0%BD%D0%B5-%D0%BC%D0%BE%D0%B6%D0%B5%D1%82-%D0%B2%D0%BE%D0%B9%D1%82%D0%B8-%D0%B2-%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%83-%D0%BF%D1%80%D0%B8-%D1%83%D0%B4%D0%B0%D0%BB%D0%B5%D0%BD%D0%B8%D0%B8-%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%B0-%D0%BD%D0%B0-%D0%BA%D0%BE%D1%82%D0%BE%D1%80%D1%8B%D0%B9-%D0%BE%D0%BD-%D0%B7%D0%B0%D1%80%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD,"‌
+
+Шаги для воспроизведения:
+
+1. Открыть Postman
+2. Залогинится Администратором (эл. почта:`pochtakota@gmail.com`, пароль:`meowMeow11`), запрос POST: [http://212.109.220.180/api/auth/login](http://212.109.220.180/api/auth/login ""‌"")
+3. Удалить город с ID `224000` (невозможно удалить город, см. баг №), удалить страну с ID 1, запрос DELETE: [http://212.109.220.180](http://212.109.220.180/api/auth/register ""‌"")`/api/v1/countries/1`
+4. Залогинится Администратором (эл. почта:`pochtakota@gmail.com`, пароль:`meowMeow11`), запрос POST: [http://212.109.220.180/api/auth/login](http://212.109.220.180/api/auth/login ""‌"")
+
+Актуальный результат: Админ не может залогинится.
+
+Ожидаемый результат: Админ может залогинится.
+
+Примечание: Создание Администратора завязано на ID города.",Приоритет 2 (yellow),tayab12,,0,,0,0,0,0,2023-09-26T17:16:28.130Z,651310be68886ec91b9af2ba,Ready for Approval,64db855f49b6befc58c271e4,Belhard 15.08.2023,false,,false
+650818f458a19750314fc622,"B29. Администратор может добавить пользователя с пустым полем ""street""",https://trello.com/c/RiTTHTJw/37-b29-%D0%B0%D0%B4%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%BE%D1%80-%D0%BC%D0%BE%D0%B6%D0%B5%D1%82-%D0%B4%D0%BE%D0%B1%D0%B0%D0%B2%D0%B8%D1%82%D1%8C-%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8F-%D1%81-%D0%BF%D1%83%D1%81%D1%82%D1%8B%D0%BC-%D0%BF%D0%BE%D0%BB%D0%B5%D0%BC-street,"**Найдено на build** [**212.109.220.180**](http://212.109.220.180/api/auth/login ""‌"")
+
+Шаги воспроизведения:
+
+1. Открыть Postman
+2. Залогинится Администратором (""email"": [ilyasmail@gmail.com](mailto:ilyasmail@gmail.com ""‌"") , ""password"": 1234567*9 ), запрос POST: [{{url}}/api/auth/login](http://212.109.220.180/api/auth/login ""‌"")
+3. Создать пользователя,
+   `{`""first_name"": ""Стас"",
+   ""last_name"": ""Зубков"",
+   ""email"": ""[mailstasik@gmail.com](mailto:mailynka@gmail.com ""‌"")"",
+   ""login"": ""012video"",
+   ""password"": ""pkf*12318"",
+   ""city_id"": 224000,
+   **""street"": """",**
+   ""house_number"": ""8"",
+   ""apartment"": ""182"" `}`
+   запрос POST: [{{url}}/api/v1/users](http://212.109.220.180/api/v1/users ""‌"")
+
+Актуальный результат: Пользователь зарегистрирован. 201 Created.
+
+Ожидаемый результат: Пользователь не зарегистрирован. 422 Validation Error","8SP (sky), Приоритет 2 (yellow)",marinatolstik,,0,,0,0,0,0,2023-09-26T17:16:26.523Z,651310c43eb29ea8289baf70,Closed,64db855f49b6befc58c271e4,Belhard 15.08.2023,false,,false
